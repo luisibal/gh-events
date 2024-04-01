@@ -1,12 +1,19 @@
 name: Events Demo 1
 on:
   pull_request:
-    # list of activity types that trigger the workflow on pull_request event
     types: [opened, edited]
-    # types:
-    #   - opened
-    #   - edited
   workflow_dispatch:
+  #only pushes to the main branch will trigger this workflow
+  push:
+    #filters branches
+    branches:
+      #Pattern matches for branch selection https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+      - main
+      - dev-* # dev-new dev-this-is-new ...
+      - feat/** # feat/new feat/new/button ...
+    #filters paths, triggers workflow if changes are detected in a specific path
+    paths-ignore:
+      - './github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
