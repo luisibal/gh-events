@@ -9,7 +9,7 @@ on:
     branches:
       #Pattern matches for branch selection https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
       - main
-      - dev-* # dev-new dev-this-is-new ...
+      - dev
       - feat/** # feat/new feat/new/button ...
     #filters paths, triggers workflow if changes are detected in a specific path
     paths-ignore:
